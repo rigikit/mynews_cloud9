@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,4 +19,16 @@ Route::get('/', function () {
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create', 'Admin\NewsController@add');
+});
+
+//課題3
+Route::group(['prefix' => 'XXX'], function() {
+    Route::get('', 'AAAController@bbb');
+});
+
+
+//課題4
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('profile/create', 'Admin\ProfileController@add');
+    Route::get('profile/edit', 'Admin\ProfileController@edit');
 });
