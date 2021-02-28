@@ -43,4 +43,5 @@ Route::post('news/create', 'Admin\NewsController@create');
  Route::post('profile/create', 'Admin\ProfileController@create');
  Route::get('profile/edit', 'Admin\ProfileController@edit');
  Route::post('profile/edit', 'Admin\ProfileController@update');
+ Route::get('news', 'Admin\NewsController@index')->middleware('auth');// 追記
 });
