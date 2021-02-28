@@ -30,17 +30,17 @@ Route::group(['prefix' => 'XXX'], function() {
 
 //課題4と　laravel　12　ユーザー認証の課題2と3
 Route::group(['prefix' => 'admin'], function() {
-    Route::get('profile/create', 'Admin\ProfileController@add')->middleware('auth');
-    Route::get('profile/edit', 'Admin\ProfileController@edit')->middleware('auth');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//laravel 13 課題 3と6
+//laravel 12/13 課題 3と6
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-     Route::get('news/create', 'Admin\NewsController@add');
-     Route::post('news/create', 'Admin\NewsController@create');
-     Route::post('profile/create', 'Admin\ProfileController@create');
-     Route::post('profile/edit', 'Admin\ProfileController@update');# 追記
+Route::get('news/create', 'Admin\NewsController@add');
+Route::post('news/create', 'Admin\NewsController@create');
+ Route::get('profile/create', 'Admin\ProfileController@add');
+ Route::post('profile/create', 'Admin\ProfileController@create');
+ Route::get('profile/edit', 'Admin\ProfileController@edit');
+ Route::post('profile/edit', 'Admin\ProfileController@update');
 });
