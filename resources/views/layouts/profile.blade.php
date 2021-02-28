@@ -69,10 +69,6 @@
                             @endguest
                             {{-- 以上までを追記 --}}
                         </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                        </ul>
                     </div>
                 </div>
             </nav>
