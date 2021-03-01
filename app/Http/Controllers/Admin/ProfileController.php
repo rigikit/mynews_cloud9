@@ -24,13 +24,7 @@ public function create(Request $request)
       $profile = new Profile;
       $form = $request->all();
       
-      // フォームから画像が送信されてきたら、保存して、$profile->image_path に画像のパスを保存する
-      if (isset($form['image'])) {
-        $path = $request->file('image')->store('public/image');
-        $profile->image_path = basename($path);
-      } else {
-          $profile->image_path = null;
-      }
+     
       
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
@@ -76,16 +70,9 @@ public function index(Request $request)
       $profile = Profile::find($request->id);
       // 送信されてきたフォームデータを格納する
       $profile_form = $request->all();
-      if ($request->remove == 'true') {
-          $profile_form['image_path'] = null;
-      } elseif ($request->file('image')) {
-          $path = $request->file('image')->store('public/image');
-          $profile_form['image_path'] = basename($path);
-      } else {
-          $profile_form['image_path'] = $profile->image_path;
-      }
       
       
+    
       unset($profile_form['image']);
       unset($profile_form['remove']);
       unset($profile_form['_token']);
