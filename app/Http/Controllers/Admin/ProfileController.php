@@ -19,7 +19,7 @@ public function create(Request $request)
   {
       // 以下を追記
       // Varidationを行う
-      $this->validate($request, Profile::$rules);
+      $this->validate($request, profile::$rules);
       
       $profile = new Profile;
       $form = $request->all();
@@ -46,7 +46,7 @@ public function index(Request $request)
       } else {
           $posts = Profile::all();
       }
-      return view('admin.news.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+      return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
   }
 
 // 以下を追記
@@ -58,7 +58,7 @@ public function index(Request $request)
       if (empty($profile)) {
         abort(404);    
       }
-      return view('admin.news.edit', ['news_form' => $news]);
+      return view('admin.profile.edit', ['profile_form' => $profile]);
   }
 
 
@@ -72,7 +72,6 @@ public function index(Request $request)
       $profile_form = $request->all();
       
       
-    
       unset($profile_form['image']);
       unset($profile_form['remove']);
       unset($profile_form['_token']);

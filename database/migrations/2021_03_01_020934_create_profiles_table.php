@@ -17,8 +17,10 @@ class CreateProfilesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');//名前
             $table->string('gender');//性別
-            $table->text('(hobby');//趣味
+            $table->text('hobby');//趣味
             $table->text('introduction');//自己紹介
+            
+            $table->timestamps();
         });
     }
 
