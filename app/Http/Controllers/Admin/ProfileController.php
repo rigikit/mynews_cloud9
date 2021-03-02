@@ -72,8 +72,7 @@ public function index(Request $request)
       $profile_form = $request->all();
       
       
-      unset($profile_form['image']);
-      unset($profile_form['remove']);
+      
       unset($profile_form['_token']);
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();

@@ -42,9 +42,6 @@
                         <label class="col-md-2" for="introduction">自己紹介欄</label>
                         <div class="col-md-10">
                              <textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
-                            <div class="form-text text-info">
-                                設定中: {{ $profile_form->image_path }}
-                            </div>
                         </div>
                     </div>
                     <div class="form-group row">

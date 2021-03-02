@@ -48,7 +48,6 @@
                         </div>
                     </div>
                 </form>
-            </div>
             {{-- 以下を追記　--}}
                 <div class="row mt-5">
                     <div class="col-md-4 mx-auto">
