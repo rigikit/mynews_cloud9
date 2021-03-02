@@ -23,7 +23,9 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="gender">性別</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="gender" value="{{ $profile_form->gender }}">
+                            
+                            男<input type="radio" class="form-control" name="gender" value="{{ $profile_form->gender }}">
+                            女<input type="radio" class="form-control" name="gender" value="{{ $profile_form->gender }}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -35,7 +37,7 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="introduction">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control-file" name="introduction"></textarea>
+                             <textarea class="form-control" name="introduction" rows="20">{{ $profile_form->introduction }}</textarea>
                             <div class="form-text text-info">
                                 設定中: {{ $profile_form->image_path }}
                             </div>
