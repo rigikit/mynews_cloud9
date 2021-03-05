@@ -15,12 +15,14 @@
                                     @endif
                                 </div>
                                 <div class="title p-2">
-                                    <h1>{{ str_limit($headline->title, 70) }}</h1>
+                                    <h1>{{ str_limit($headline->name, 70) }}</h1>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <p class="body mx-auto">{{ str_limit($headline->body, 650) }}</p>
+                            <p class="gender mx-auto">{{ str_limit($headline->gender, 650) }}</p>
+                            <p class="hobby mx-auto">{{ str_limit($headline->hobby, 650) }}</p>
+                            <p class="introduction mx-auto">{{ str_limit($headline->introduction, 650) }}</p>
                         </div>
                     </div>
                 </div>
@@ -36,11 +38,17 @@
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
-                                <div class="title">
-                                    {{ str_limit($post->title, 150) }}
+                                <div class="name">
+                                    {{ str_limit($post->name, 150) }}
                                 </div>
-                                <div class="body mt-3">
-                                    {{ str_limit($post->body, 1500) }}
+                                <div class="gender">
+                                    {{ str_limit($post->gender, 150) }}
+                                </div>
+                                <div class="hobby">
+                                    {{ str_limit($post->hobby, 150) }}
+                                </div>
+                                <div class="introduction">
+                                    {{ str_limit($post->introduction, 1500) }}
                                 </div>
                             </div>
                             <div class="image col-md-6 text-right mt-4">
