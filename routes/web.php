@@ -47,6 +47,8 @@ Route::get('news', 'Admin\NewsController@index');
 Route::get('news/edit', 'Admin\NewsController@edit');
 Route::post('news/edit', 'Admin\NewsController@update');
 Route::get('news/delete', 'Admin\NewsController@delete');
+
 });
 Route::get('/', 'NewsController@index');
 Route::get('/profile', 'ProfileController@index');
+Route::get('profile', 'Admin\ProfileController@index');
