@@ -35,7 +35,7 @@ Route::group(['prefix' => 'admin'], function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-//laravel 12/13 課題 3と6
+
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 Route::get('news/create', 'Admin\NewsController@add');
 Route::post('news/create', 'Admin\NewsController@create');
@@ -47,8 +47,9 @@ Route::get('news', 'Admin\NewsController@index');
 Route::get('news/edit', 'Admin\NewsController@edit');
 Route::post('news/edit', 'Admin\NewsController@update');
 Route::get('news/delete', 'Admin\NewsController@delete');
-
+Route::get('profile', 'Admin\ProfileController@index');
 });
 Route::get('/', 'NewsController@index');
-Route::get('/profile', 'ProfileController@index');
+Route::get('profile', 'ProfileController@index');
 Route::get('profile', 'Admin\ProfileController@index');
+Route::get('profile', 'Admin\ProfileController@delete');

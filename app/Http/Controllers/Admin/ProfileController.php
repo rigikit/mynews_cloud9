@@ -28,11 +28,18 @@ public function create(Request $request)
       $profile = new Profile;
       $form = $request->all();
       
-     
-      
+      // フォームから画像が送信されてきたら、保存して、$profile->image_path に画像のパスを保存する
+      if (isset($form['image'])) {
+        $path = $request->file('image')->store('public/image');
+        $profile->image_path = basename($path);
+      } else {
+        $profile->image_path = null;
+      }
+
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
-      
+      // フォームから送信されてきたimageを削除する
+      unset($form['image']);
       // データベースに保存する
       $profile->fill($form);
       $profile->save();
@@ -84,7 +91,15 @@ public function index(Request $request)
         $profilehistory->edited_at = Carbon::now();
         $profilehistory->save();
 
-      return redirect('admin/profile');
+      return redirect('admin/profile/');
   }
-
+  // 以下を追記　　
+  public function delete(Request $request)
+  {
+      // 該当するProfile Modelを取得
+      $profile = Profile::find($request->id);
+      // 削除する
+      $profile->delete();
+      return redirect('admin/profile/');
+  }  
 }
