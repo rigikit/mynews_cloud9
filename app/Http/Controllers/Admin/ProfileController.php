@@ -39,7 +39,7 @@ public function create(Request $request)
       // フォームから送信されてきた_tokenを削除する
       unset($form['_token']);
       // フォームから送信されてきたimageを削除する
-      unset($form['image']);
+      //unset($form['image']);
       // データベースに保存する
       $profile->fill($form);
       $profile->save();
@@ -79,10 +79,17 @@ public function index(Request $request)
       $profile = Profile::find($request->id);
       // 送信されてきたフォームデータを格納する
       $profile_form = $request->all();
-      
-      
+      if ($request->remove == 'true') {
+          $profile_form['image_path'] = null;
+      } elseif ($request->file('image')) {
+          $path = $request->file('image')->store('public/image');
+          $profile_form['image_path'] = basename($path);
+      } else {
+          $profile_form['image_path'] = $profile->image_path;
+      }
       
       unset($profile_form['_token']);
+      
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
       // 以下を追記
