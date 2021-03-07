@@ -19,7 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string('gender');//性別
             $table->text('hobby');//趣味
             $table->text('introduction');//自己紹介
-            
+            $table->string('image_path')->nullable();
             $table->timestamps();
         });
     }

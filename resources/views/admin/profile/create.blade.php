@@ -1,29 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Myプロフィール</title>
-    </head>
-    <body>
-        <h1></h1>
-    </body>
-</html>
-{{-- layouts/profile.blade.phpを読み込む --}}
+{{-- layouts/admin.blade.phpを読み込む --}}
 @extends('layouts.profile')
 
 
-{{-- profile.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
-@section('title', 'Myプロフィール')
+{{-- admin.blade.phpの@yield('title')に'ニュースの新規作成'を埋め込む --}}
+@section('title', 'プロフィール')
 
-{{-- profile.blade.phpの@yield('content')に以下のタグを埋め込む --}}
+{{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>Myプロフィール</h2>
+                <h2>プロフィール新規作成</h2>
                 <form action="{{ action('Admin\ProfileController@create') }}" method="post" enctype="multipart/form-data">
 
                     @if (count($errors) > 0)
@@ -33,31 +21,32 @@
                             @endforeach
                         </ul>
                     @endif
+                    
                     <div class="form-group row">
                         <label class="col-md-2">氏名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="name" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="name" >
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">性別</label>
                         <div class="col-md-10">
-                            男<input type="radio" class="form-control" name="gender" value="man" rows="20" {{ old('body') }}>
-                            女<input type="radio" class="form-control" name="gender" value="women" rows="20" {{ old('body') }}>
+                            男<input type="radio" class="form-control" name="gender" value="man" rows="20" {{ old('gender') }}>
+                            女<input type="radio" class="form-control" name="gender" value="women" rows="20" {{ old('gender') }}>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label class="col-md-2">趣味</label>
+                        <label class="col-md-2">趣味,特技</label>
                         <div class="col-md-10">
-                            <textarea class="form-control-file" name="hobby"></textarea>
+                            <textarea class="form-control" name="hobby" rows="20">{{ old('hobby') }}</textarea>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">自己紹介欄</label>
                         <div class="col-md-10">
-                            <textarea class="form-control-file" name="introduction"></textarea>
+                            <textarea class="form-control" name="introduction" rows="20">{{ old('introduction') }}</textarea>
                         </div>
-                    </div
+                    </div>
                     <div class="form-group row">
                         <label class="col-md-2">画像</label>
                         <div class="col-md-10">
