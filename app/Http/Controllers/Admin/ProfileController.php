@@ -89,7 +89,7 @@ public function index(Request $request)
       }
       
       unset($profile_form['_token']);
-      
+      unset($profile_form['image']);
       // 該当するデータを上書きして保存する
       $profile->fill($profile_form)->save();
       // 以下を追記
